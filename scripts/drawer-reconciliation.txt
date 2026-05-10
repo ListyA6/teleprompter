@@ -1,0 +1,27 @@
+{warm}Every day, before the shift closes, someone has to count the drawer.{/}
+
+{soft}Cash in. Cash out. What's left. Does it match the system?{/}
+
+{slow}At 200 orders a day across three shifts, that's a lot of hands touching the same drawer.{/}
+
+{up}Before the POS, this was a 40-minute hunt every single night.{/}
+
+The shift manager would tally the register by hand. Compare it to the day's written receipts. If the numbers didn't match — and they often didn't — we'd go back through every transaction looking for the gap.
+
+{urg}Once I spent 40 minutes finding a 15,000 rupiah discrepancy.{/} Forty minutes. For 15,000 rupiah.
+
+{slow}It wasn't about the money.{/} It was about not knowing where it went. An unchecked gap is an invisible leak.
+
+{warm}Now every transaction hits the system the moment it's processed.{/} Cash, QRIS, GoFood, GrabFood — each into their own drawer bucket.
+
+At close, the shift manager enters the physical cash count. The system compares it to the expected amount in under a second.
+
+{rise}Two hundred and forty day-ends.{/} Drawer variance under Rp 5,000 on {emp}99.4% of them.{/}
+
+{hit}The 15,000-rupiah gap took me 40 minutes to find. Now it takes zero.{/}
+
+{slow}Because it doesn't happen anymore.{/}
+
+{warm}That's what good systems do.{/} They don't just help you find problems faster. They make the problems smaller.
+
+{soft}The drawer doesn't lie. It just used to take forever to ask it the right question.{/}

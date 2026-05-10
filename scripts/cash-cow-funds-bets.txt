@@ -1,0 +1,20 @@
+{warm}I run four businesses.{/} {emp}One pays for the other three.{/}
+
+{slow}LalaFun — fried chicken — does {hit}one hundred thirty million{/} a month.{/}
+
+{up}Boring. Predictable. Cash cow.{/}
+
+{fast}It funds the noodle shop. It funds the bakery launch. It funds the agency pivot.{/}
+
+{slow}Every operator I respect has one of these.{/}
+
+{rise}A simple, repeatable, low-drama machine{/} — {hit}that pays for the experiments.{/}
+
+{warm}Founders romanticize the new bet.{/}
+{whisper}Nobody romanticizes the chicken shop.{/}
+
+{loud}But the chicken shop is what makes the bet possible.{/}
+
+{up}If you're trying to do three things at once and none of them is profitable yet —{/} {urg}you don't have a portfolio.{/} {whisper}You have three problems.{/}
+
+{warm}Build the cash cow first.{/} {warm}Then bet.{/}

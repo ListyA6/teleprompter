@@ -1,0 +1,23 @@
+{warm}I run {emp}three restaurants.{/}{/} Yesterday, I had no idea how much any of them made.
+
+Not because business was bad.
+
+{urg}Because everything was{/} scattered — {fast}three notebooks, three group chats, three everything.{/}
+
+{warm}LalaFun. Kosolo. And a ghost kitchen I'm testing.{/}
+
+{slow}Every morning I had to{/} manually piece together what happened the night before.
+
+{up}How much did we sell? Did we run out of stock? Who's short on cash?{/}
+
+{urg}I was the system.{/} {hit}And I was breaking.{/}
+
+{warm}So I started asking a different question.{/}
+
+{rise}What if one thing{/} — {hit}one brain{/} — could see all three restaurants at once?
+
+{slow}Not an app I bought.{/} Something I built myself.
+
+{warm}This is that story.{/} I'm documenting the whole build.
+
+{soft}Follow if you want to see how this ends.{/}

@@ -1,0 +1,99 @@
+{warm}I run a fried chicken restaurant in Kediri, Indonesia.{/}
+
+{soft}No tech startup. No viral moment. No investor.{/}
+
+{slow}Just a shop, a fryer, and five years of figuring it out.{/}
+
+This is the LalaFun story.
+
+{up}We sell ayam geprek —{/} smashed fried chicken, rice, sambal, cucumber.
+
+{emp}Fifteen thousand rupiah{/} a plate. About one US dollar.
+
+{warm}In Kediri, that's a full meal.{/} And we sell a lot of them.
+
+{fast}Over five thousand orders in April alone.{/}
+
+{slow}One hundred thirteen million rupiah in one month.{/} In our city — {urg}that's real cash.{/}
+
+Let me tell you how we got here.
+
+{warm}I started LalaFun around twenty twenty-one.{/}
+
+{soft}No business plan. Just a recipe and a location.{/}
+
+The concept was simple — {emp}cheap, filling, consistent.{/}
+
+{rise}If you nail those three things in food,{/} {hit}you win.{/}
+
+The first months were messy. Every day was a new problem.
+
+But the food worked. {emp}People came back.{/}
+
+{slow}That's the only real signal that matters early on.{/}
+
+Our best month ever was {emp}December twenty twenty-five — one fifty-two million rupiah.{/}
+
+{warm}Normal months run around one thirty million rupiah.{/}
+
+{urg}Revenue is vanity. Margin is sanity.{/}
+
+{slow}Our main cost driver is chicken.{/}
+
+One bird, one point eight kilograms, gives us {emp}eleven pieces.{/}
+
+After byproducts — our cost per piece is {emp}four thousand four hundred rupiah.{/}
+
+We sell the full plate for fifteen thousand rupiah.
+
+{soft}Sounds like good margin — until you add everything else.{/}
+
+Rice. Sambal. Packaging. Frying oil. Staff. Lease.
+
+{rise}Add it all up{/} — one plate costs us {emp}nine thousand nine hundred fifty-two rupiah to make.{/}
+
+{urg}That's sixty-six percent of the sale price.{/}
+
+{slow}In food, that's tight.{/}
+
+Then in February twenty twenty-six, chicken spiked to {emp}twenty-eight thousand rupiah per kilo.{/}
+
+{urg}Government policy squeezed supply across Java.{/}
+
+{soft}Our margin dropped to twelve point eight percent that month.{/}
+
+{warm}We survived. But it hurt.{/}
+
+{slow}A food business lives and dies on ingredient costs.{/}
+
+{soft}You can't control the market. You can only control your systems.{/}
+
+Now — my biggest mistake.
+
+{warm}LalaFun was working well. So I opened a second outlet.{/}
+
+We called it SaraFun.
+
+{urg}I opened before I had the staff, the senior lead, the logistics.{/}
+
+{slow}I thought volume would solve everything.{/}
+
+{hit}It didn't.{/}
+
+{warm}SaraFun closed April seventh, twenty twenty-six.{/}
+
+{slow}Never open a new outlet until your infrastructure is ready.{/}
+
+Staff. Senior lead. Logistics. Buffer stock. All of it — first.
+
+{warm}One failed outlet taught me more than five good months ever did.{/}
+
+Today, LalaFun runs with eight staff and a live POS system.
+
+{soft}LalaFun is not my dream business.{/}
+
+{rise}It's my engine — funding the experiments, the bets, the bigger builds.{/}
+
+{slow}A cash cow only works if you milk it — and invest it wisely.{/}
+
+{warm}That's the LalaFun story. Still being written.{/}

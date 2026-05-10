@@ -1,0 +1,29 @@
+{warm}I'm running a food experiment right now.{/} No marketing. No customers. No open sign.
+
+{soft}Just me, a pressure cooker, and a recipe I'm trying to break.{/}
+
+It's a pedesan — Javanese spiced meat dish. Babat and usus. {emp}750 grams of protein.{/} Ketumbar doubled from the first run. Asam jawa doubled. More acid, more body.
+
+{slow}This is Experiment 02.{/}
+
+{rise}Nobody eats it but me and whoever's in the kitchen.{/} That's the whole point.
+
+{slow}Before I commit to a new food concept, I run it like a lab.{/} Every batch gets documented — the ratio, the cook time, the texture, the score. What worked, what didn't, what to change for the next run.
+
+{warm}Most people decide a concept works when their family says it's delicious.{/}
+
+{urg}That's not enough.{/}
+
+You need to know if it's consistent. If a different cook can reproduce it. If the margins hold when you're buying at scale. If it survives a Friday night rush.
+
+{slow}None of that shows up at the dinner table.{/}
+
+{up}I call this the ghost kitchen model — build and test in private before you commit a lease, a brand, a team.{/}
+
+{slow}My bakery, Floural, is doing the same thing.{/} Won't open until we've tested {emp}three months of recipes.{/} Because if the product isn't locked, the business has no foundation.
+
+{warm}Most operators skip this step because it feels slow.{/}
+
+{hit}It's the fastest path I know.{/}
+
+{soft}The experiment log is public — I'll link it in the bio if you want to follow the data.{/}

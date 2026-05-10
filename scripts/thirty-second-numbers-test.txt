@@ -1,0 +1,24 @@
+{warm}A test I run on every founder I meet.{/}
+
+{slow}I ask three questions.{/} {fast}Thirty seconds total.{/}
+
+{up}One.{/} {emp}What is your cost per unit sold?{/}
+{up}Two.{/} {emp}What is your cash on hand right now?{/}
+{up}Three.{/} {emp}What is your monthly burn?{/}
+
+{slow}If they pause —{/} {urg}I know everything I need to know.{/}
+
+{warm}Not because the numbers themselves matter most.{/}
+{rise}Because the {emp}reflex{/} matters most.{/}
+
+{loud}A real operator answers in seconds.{/}
+{whisper}A pretender answers in paragraphs.{/}
+
+{soft}They tell me the story.{/} {soft}The plan. The vibe.{/}
+
+{slow}But they don't have the numbers.{/}
+{slow}Which means {emp}the numbers don't have them.{/}
+
+{up}If you're building something —{/} {emp}know your three.{/} {hit}In thirty seconds.{/}
+
+{warm}It's the cheapest discipline you'll ever practice.{/} {warm}And the most defining.{/}

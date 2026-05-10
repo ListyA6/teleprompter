@@ -1,0 +1,21 @@
+{warm}I have a rule now.{/} {emp}Infrastructure first.{/}
+
+{slow}Before I open anything new — restaurant, outlet, agency arm —{/} four things have to exist.
+
+{up}One.{/} {emp}Staff{/} — fully hired, not "we'll figure it out."
+{up}Two.{/} {emp}A senior lead{/} on site, not a phone call away.
+{up}Three.{/} {emp}Logistics{/} — supply chain mapped, vendor backups in place.
+{up}Four.{/} {emp}Buffer stock.{/} {fast}Not just-in-time, ready-for-shock.{/}
+
+{slow}If even one of those is missing,{/} {urg}I don't open.{/}
+
+{warm}I learned this the expensive way.{/}
+
+{rise}Every founder I know who burned cash on a launch{/} — {hit}skipped one of those four.{/}
+
+{loud}Excitement is not infrastructure.{/}
+{whisper}Hope is not infrastructure.{/}
+
+{up}If you're about to open something —{/} {emp}walk through the four.{/} {warm}Be honest.{/}
+
+{warm}If you can't tick all four, you don't have a launch.{/} {warm}You have a gamble.{/}

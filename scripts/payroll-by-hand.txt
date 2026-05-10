@@ -1,0 +1,27 @@
+{warm}End of every month I used to sit down with a calculator and thirteen sheets of paper.{/}
+
+{soft}Payroll day. The one I dreaded most.{/}
+
+{slow}Thirteen staff. Three shifts. Each one with a different base salary, a different attendance record, a different set of advances taken mid-month.{/}
+
+{up}The math isn't hard. The volume is.{/}
+
+Base salary. Plus the attendance bonus — only if they hit the monthly threshold. Minus the late fines — three minutes after shift start counts. Minus the cash advances they'd already taken. Minus any fines from the ops log.
+
+{slow}Multiply that by thirteen.{/} Then cross-check against the cash in the safe.
+
+{urg}And if I'd missed one late penalty from week two, I'd find out when a staff member disputed the number.{/} Then I'd go back through the attendance clipboard, page by page, re-counting.
+
+{slow}{warm}It took an hour on a good month.{/} Two hours if someone had a complicated record.{/}
+
+{rise}Then I'd count the cash into envelopes.{/} Write names on them. Hand them out.
+
+{hit}Now it takes fourteen minutes.{/}
+
+{slow}The system computes live as the month runs.{/} Every late clock-in is logged automatically — selfie, GPS, timestamp. Every advance is deducted the moment I approve it.
+
+On the 28th I tap close month. The payout sheet is done. I print it, count cash, hand it out.
+
+{warm}Eight months in. Rp 186 million in payroll processed.{/} {emp}Zero disputes. Zero manual re-runs.{/}
+
+{soft}Fourteen minutes. Every month. Same result.{/}

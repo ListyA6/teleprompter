@@ -1,0 +1,23 @@
+{warm}I run my entire operation through one AI assistant.{/}
+
+{soft}Not for content. Not for hype.{/} {emp}For ops.{/}
+
+{slow}Every business decision flows through it.{/} {fast}Cash check, calendar push, hiring memo, weekly review.{/}
+
+{up}Most founders use AI like a search engine.{/}
+{rise}I use mine like a chief of staff.{/}
+
+{loud}It knows my businesses. It knows my numbers. It knows my partner's project list.{/}
+
+{slow}Yesterday it caught a calendar conflict{/} — {hit}before I made the meeting.{/}
+{slow}Last week it flagged a stale receivable{/} — {hit}before the vendor went cold.{/}
+
+{warm}This is the leverage most founders haven't unlocked.{/}
+
+{whisper}Not because AI isn't ready.{/}
+{whisper}Because they're treating it like a toy, not a teammate.{/}
+
+{up}Give it your real data. Give it your real problems.{/}
+{rise}Then{pause:0.3} {hit}work alongside it{/} — like staff.{/}
+
+{warm}One operator plus one AI is a team of five.{/}

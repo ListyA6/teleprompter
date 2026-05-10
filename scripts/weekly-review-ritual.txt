@@ -1,0 +1,27 @@
+{warm}Every Sunday night, I run a one-hour ritual.{/}
+
+{emp}The weekly review.{/}
+
+{slow}Four businesses. One template. One hour.{/}
+
+{up}What got done?{/}
+{up}What's overdue?{/}
+{up}What needs my attention this week?{/}
+{up}What can I delete?{/}
+
+{soft}Most founders skip this.{/} {whisper}They think momentum is the answer.{/}
+
+{slow}Momentum without review is just{/} {urg}faster drift.{/}
+
+{rise}You can work seven days a week{/} — {hit}and still build the wrong thing.{/}
+
+{warm}One hour on Sunday saves twenty hours on Wednesday.{/}
+
+{fast}Stale tasks die. Wrong priorities surface. Forgotten promises get caught.{/}
+
+{loud}The week stops happening to you.{/} {whisper}You start authoring it.{/}
+
+{slow}If you're running multiple things —{/} {emp}you can't afford not to do this.{/}
+
+{warm}One hour. One template. Every Sunday.{/}
+{warm}It's the highest-leverage hour of my week.{/}

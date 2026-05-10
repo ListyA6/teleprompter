@@ -1,0 +1,27 @@
+{warm}I get this question every week.{/}
+
+{soft}"Why don't you open more outlets?"{/}
+
+{slow}LalaFun could franchise. Kosolo could replicate. The numbers say go.{/}
+
+{up}I'm choosing not to.{/}
+
+{slow}Because scale exposes weakness.{/}
+
+{rise}Every fragile system you have at one outlet —{/} {hit}becomes a screaming siren at five.{/}
+
+{warm}I've watched friends do it.{/}
+
+{soft}First outlet, profitable.{/} {soft}Second outlet, fine.{/}
+{urg}Third outlet, the founder is on the road five nights a week and the original outlet is dying.{/}
+
+{slow}Scale is a multiplier.{/} {emp}It multiplies what you already are.{/}
+
+{loud}If your foundation is a six —{/} {hit}five outlets is a thirty-point disaster.{/}
+
+{whisper}If your foundation is a nine —{/} {emp}five outlets is your dream.{/}
+
+{up}Don't ask if you should scale.{/}
+{rise}Ask if your one is a {emp}nine{/} yet.{/}
+
+{warm}If not — fix the one.{/} {warm}Scale comes later.{/}

@@ -1,0 +1,39 @@
+{warm}Here's something most restaurant owners{/} {emp}can't tell you{/}.
+
+{slow}I run a fried chicken place in Indonesia.{/} {rise}One hundred thirty million rupiah a month.{/}
+
+And here's what nobody breaks down on camera —
+{up}what does {hit}one{/} piece of chicken actually cost me?{/}
+
+{slow}Stay with me.{/}
+
+A live chicken — {emp}one point eight kilograms{/} — costs me {emp}twenty-two thousand rupiah{/} per kilo.
+
+So that bird is{pause:0.4} {hit}thirty-nine thousand six hundred{/} in.
+
+But here's the trick. {up}It's not one cost.{/} It's {fast}seven{/} costs.
+
+The {emp}wings{/} go to a separate menu.
+The {emp}liver and gizzard{/} sell out in sets — one thousand rupiah a set.
+The {emp}head and legs{/} — gone. {whisper}Charity, staff meals.{/}
+
+So I subtract those. About {fast}five thousand rupiah{/} in byproduct value.
+
+{slow}What's left?{/} {loud}Thirty-three thousand{/}, divided across {emp}nine main pieces{/}.
+
+{rise}Four thousand four hundred rupiah{/}{pause:0.6} {hit}per piece.{/}
+
+{warm}That's the number that runs my whole business.{/}
+
+Because in February, chicken hit {urg}twenty-eight thousand a kilo{/}. {fast}Government policy, supply squeeze, doesn't matter why{/} — my cost per piece jumped to {hit}{urg}five thousand six hundred.{/}{/}
+
+{slow}On a fifteen thousand rupiah meal,{/} that's the difference between {emp}twenty percent margin{/} and {fall}{urg}twelve percent{/}{/}.
+
+{warm}Most operators don't feel that until the month-end ledger lands.{/}
+{slow}I felt it the {stretch}day{/} prices moved.{/}
+
+{loud}Because I{pause:0.3} {hit}knew{/} the number.{/}
+
+{up}If you run a food business —{/} {emp}any{/} food business — and you {emp}can't tell me your cost per piece in thirty seconds,{/} {whisper}you're flying blind.{/}
+
+{warm}That's it.{/} {warm}That's the whole thing.{/}

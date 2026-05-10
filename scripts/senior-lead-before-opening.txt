@@ -1,0 +1,20 @@
+{warm}A question I ask before I open anything:{/}
+
+{slow}Who is in charge when I'm not in the room?{/}
+
+{up}If the answer is{/} {urg}"me, by phone"{/} — {hit}I'm not ready.{/}
+
+{soft}I learned this the hard way.{/}
+
+{rise}I opened a satellite outlet without a senior on site.{/}
+{slow}Three months later, I closed it.{/}
+
+{warm}Every problem reached me directly.{/} {fast}Every supplier mismatch, every staff fight, every spoiled batch.{/}
+
+{loud}I wasn't running a business.{/} {whisper}I was being paged by one.{/}
+
+{slow}A senior lead is not a luxury.{/} {emp}It's the unlock.{/}
+
+{up}It's the difference between owning the business —{/} {hit}and being owned by it.{/}
+
+{warm}Hire the lead first.{/} {warm}Then open the door.{/}

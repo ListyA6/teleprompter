@@ -1,0 +1,24 @@
+{warm}I closed an outlet at month three.{/}
+
+{soft}A friend asked if I gave it enough time.{/}
+
+{slow}I gave it the {emp}right{/} time.{/}
+
+{up}There's a myth in founder culture —{/} {fast}push through, grind harder, year one is supposed to hurt.{/}
+
+{slow}Sometimes it is.{/}
+{slow}But sometimes the pain is the signal,{/} {urg}not the cost of admission.{/}
+
+{rise}If your new venture is starving the businesses that already work —{/} {hit}you've already learned the lesson.{/}
+
+{warm}Closing fast is not failure.{/}
+{warm}Closing fast is {emp}respecting the data.{/}
+
+{loud}A six-month closure is a learning.{/}
+{loud}A {hit}two-year{/} closure is a wound.{/}
+
+{whisper}Ego wants the long story.{/} {whisper}Operations want the clean cut.{/}
+
+{up}If something is leaking — and you've already tried the obvious patches —{/} {emp}don't romanticize the bleed.{/}
+
+{warm}Close. Document. Reset.{/} {warm}Then build the better thing.{/}

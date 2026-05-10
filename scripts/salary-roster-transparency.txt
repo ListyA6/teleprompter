@@ -1,0 +1,27 @@
+{warm}I keep one document I check every month.{/}
+
+{emp}The salary roster.{/}
+
+{slow}Every staff member, every business, every rupiah I pay.{/}
+
+{up}On one screen.{/}
+
+{soft}A lot of founders avoid this view.{/} {whisper}It feels heavy.{/}
+
+{slow}But avoiding it is how payroll quietly eats your margin.{/}
+
+{rise}You hire one helper here. One assistant there.{/} {fast}A driver, a baker, a part-timer for weekends.{/}
+
+{loud}Three months in, payroll has grown {hit}forty percent{/} — and you didn't notice.{/}
+
+{warm}A roster makes the invisible visible.{/}
+
+{up}Are two people doing one job?{/} {up}Is the senior cost matched by senior output?{/}
+
+{slow}Every line is a question.{/} {slow}Every question is leverage.{/}
+
+{loud}You can't manage what you don't lay flat.{/}
+
+{whisper}Open the spreadsheet. Count the rows. Read every name.{/}
+
+{warm}Then ask:{/} {emp}which of these is paying for itself?{/}

@@ -1,0 +1,23 @@
+{warm}I'm pivoting my agency.{/} {soft}Branding to ops.{/}
+
+{slow}For two years, we sold logos and visual systems.{/} {fast}Decks, brand books, rollout guides.{/}
+
+{up}It paid the bills.{/} {urg}But it solved the wrong problem.{/}
+
+{warm}Most clients don't have a branding problem.{/}
+{rise}They have an operations problem{/} — {hit}wearing a branding mask.{/}
+
+{slow}Their team can't ship. Their flow is broken. Their decisions are slow.{/}
+
+{loud}A new logo doesn't fix that.{/} {whisper}It just makes the chaos look prettier.{/}
+
+{slow}So we're repositioning.{/}
+
+{up}Sidestudio now sells {emp}operations problem-solving{/} —{/} {fast}systems, SOPs, decision frameworks, ops audits.{/}
+
+{warm}Same team. Different question.{/}
+
+{loud}Not "what should this look like."{/}
+{rise}But "{hit}why is this not working.{/}"{/}
+
+{warm}If you're an agency stuck in the deliverables loop —{/} {emp}ask what your clients actually need.{/} {whisper}It might not be what you sell.{/}

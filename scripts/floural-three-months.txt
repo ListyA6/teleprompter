@@ -1,0 +1,31 @@
+{warm}We're not opening the bakery until August.{/}
+
+{soft}I know that sounds slow. We've been working on it for months.{/}
+
+{slow}The oven isn't even bought yet.{/}
+
+{up}That's not a mistake. That's the plan.{/}
+
+{slow}Floural is my girlfriend's brand — an artisan bakery in Kediri.{/} She's the face of it. The baker. The reason it exists.
+
+Before we open, we're running {emp}three months of recipe testing.{/} Every product that goes on the menu gets tested, scored, adjusted, retested. Taste, texture, consistency, shelf life. Can a different batch reproduce the same result? What's the actual COGS at real volume?
+
+{slow}None of that can be rushed.{/}
+
+{urg}I've seen cafés open on a vibe.{/} {fast}Beautiful branding, good location, opening day crowd, sold out by noon —{/} and by month three they're struggling because the kitchen workflow was never locked.
+
+{slow}The product looked great. The operations weren't ready.{/}
+
+{rise}We are doing this the opposite way.{/}
+
+Lock the recipes first. Lock the production flow. Train until it's muscle memory. Then open.
+
+{warm}By the time we open, she will have made every product on the menu{/} {emp}at least thirty times.{/}
+
+{slow}The first customer won't be getting our third attempt.{/} They'll be getting our fortieth.
+
+{hit}That's what confidence looks like from the inside.{/}
+
+{warm}August isn't a deadline we're scrambling toward.{/} It's a gate we have to earn.
+
+{soft}Every week of prep is a week of problems we won't have on opening day.{/}

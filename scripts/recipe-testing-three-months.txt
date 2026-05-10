@@ -1,0 +1,22 @@
+{warm}We're launching a bakery in August.{/}
+
+{slow}It's April.{/} {fast}We started recipe testing this week.{/}
+
+{up}Three months of testing{/} — {emp}before a single customer tastes anything.{/}
+
+{soft}People think this is overkill.{/}
+
+{slow}It's not.{/}
+
+{rise}A recipe at home is a hobby.{/} {hit}A recipe at scale is a business.{/}
+
+{warm}You'll find ten things between week one and week twelve:{/}
+{fast}Flour brand inconsistencies. Oven hot spots. Humidity drift. Shelf life surprises. Cost creep.{/}
+
+{slow}Every one of those is a {stretch}silent{/} margin killer.{/}
+
+{loud}If you launch and find them in production —{/} {urg}you're paying tuition with customer trust.{/}
+
+{up}Test{pause:0.3} early.{/} {up}Test{pause:0.3} ugly.{/} {hit}Test cheap.{/}
+
+{warm}The launch isn't the start of the work.{/} {warm}It's the {emp}graduation{/}.{/}

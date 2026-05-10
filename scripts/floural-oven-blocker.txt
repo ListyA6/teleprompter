@@ -1,0 +1,25 @@
+{warm}A bakery launch in four months.{/} {soft}One thing is blocking everything.{/}
+
+{slow}We don't have the oven yet.{/}
+
+{up}Not the brand. Not the recipes. Not the staff.{/}
+
+{emp}A single piece of equipment.{/}
+
+{slow}Founders love to focus on the visible work{/} — {fast}the logo, the launch event, the Instagram grid.{/}
+
+{whisper}But the launch dies on the invisible bottleneck.{/}
+
+{rise}One vendor delay. One spec mismatch. One unmade order.{/}
+{loud}And the whole machine stops.{/}
+
+{warm}I've been guilty of this.{/}
+
+{slow}Designing the {stretch}cake{/} before sourcing the {stretch}oven{/}.{/}
+{soft}Naming the brand before securing the lease.{/}
+
+{up}Find the bottleneck early.{/}
+{rise}Make it the first move{/} — {hit}not the last one.{/}
+
+{warm}Everything else can wait.{/}
+{warm}The {emp}critical path{/} cannot.{/}

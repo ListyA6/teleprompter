@@ -1,0 +1,35 @@
+{warm}Nine PM on a Sunday. The kitchen sends me a voice note.{/}
+
+{soft}"We ran out of chicken."{/}
+
+{slow}The queue had forty-something orders in it.{/} GoFood, GrabFood, walk-ins. All waiting.
+
+I walked into the kitchen. The whiteboard said — and I'm not joking —
+
+{urg}"Chicken: ?? kg"{/}
+
+{slow}Someone had crossed out the last count and written a question mark.{/} Nobody knew when it ran out or who last touched it.
+
+{urg}We lost eighteen orders that night.{/} Sent them all away. The reviews came the next morning.
+
+{slow}The thing is, it wasn't the first time.{/}
+
+Stock lived on that whiteboard. Whoever remembered to cross things off, did. Whoever was buried in a rush — didn't. There was no consumption rate, no reorder point, no alert. No system.
+
+{slow}{warm}There was just a marker, a sponge, and the hope that someone was paying attention.{/}{/}
+
+{rise}I don't blame the staff.{/} You can't build a reliable system on hope and a whiteboard.
+
+{warm}So when I built the POS, stock was the second module I touched.{/}
+
+Every sale now auto-deducts from the right SKU. The recipe map is set once — chicken thigh per piece, flour per batch — and then it just runs.
+
+When stock drops under the reorder threshold for that day's velocity, {emp}I get a notification that morning.{/} Not after we run out. Before.
+
+{slow}Since launch, we've fired forty-one low-stock alerts.{/}
+
+{hit}Zero missed orders.{/}
+
+{warm}The whiteboard is empty now.{/} The kitchen likes it that way. So do I.
+
+{soft}Systems don't fix careless people. They remove the need for perfect ones.{/}

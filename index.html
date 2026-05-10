@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teleprompter</title>
+<style>
+:root {
+  --bg: #0a0a0a;
+  --fg: #f0f0f0;
+  --dim: #555;
+  --accent: #ff7a00;
+  --slow: #5aa9ff;
+  --fast: #ff7a00;
+  --emp: #ffd700;
+  --urg: #ff3b30;
+  --warm: #ffb088;
+  --soft: #888;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--fg); font-family: 'Inter', -apple-system, system-ui, sans-serif; overflow: hidden; }
+
+#stage { height: 100vh; overflow: hidden; position: relative; }
+#scroll { padding: 50vh 8vw; font-size: 4rem; line-height: 1.55; will-change: transform; font-weight: 500; }
+#scroll p { margin: 1.2em 0; }
+
+/* reading guide line at 40% viewport height */
+#guide { position: fixed; left: 0; right: 0; top: 40%; height: 0; border-top: 1px dashed rgba(255,122,0,0.35); pointer-events: none; z-index: 5; }
+#guide::before { content: ""; position: absolute; left: 0; top: -6px; border: 6px solid transparent; border-left-color: var(--accent); }
+
+/* mirror mode (for actual teleprompter rigs) */
+.mirror #scroll { transform-origin: center; }
+
+/* controls */
+#controls { position: fixed; top: 0; left: 0; right: 0; padding: 10px 18px; background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0)); display: flex; gap: 14px; align-items: center; z-index: 10; transition: opacity 0.3s; font-size: 12px; flex-wrap: wrap; }
+#controls.hidden { opacity: 0; pointer-events: none; }
+#controls button { background: transparent; color: var(--fg); border: 1px solid #2a2a2a; padding: 5px 11px; border-radius: 5px; cursor: pointer; font: inherit; }
+#controls button:hover { background: #1a1a1a; border-color: #444; }
+#controls button.active { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+.field { display: flex; align-items: center; gap: 8px; color: #aaa; }
+.field input[type=range] { width: 140px; accent-color: var(--accent); }
+.field span.val { color: var(--fg); min-width: 28px; text-align: right; }
+
+/* progress bar */
+#progress { position: fixed; top: 0; left: 0; height: 2px; background: var(--accent); z-index: 11; transition: width 0.1s; width: 0; }
+
+/* legend */
+#legend { position: fixed; right: 18px; bottom: 18px; background: rgba(15,15,15,0.96); border: 1px solid #2a2a2a; border-radius: 10px; padding: 14px 18px; font-size: 12px; max-width: 320px; z-index: 9; line-height: 1.9; backdrop-filter: blur(8px); }
+#legend h4 { margin-bottom: 8px; color: var(--accent); font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; }
+#legend.hidden { display: none; }
+#legend hr { border: 0; border-top: 1px solid #2a2a2a; margin: 10px 0; }
+#legend .key { color: var(--dim); font-size: 11px; }
+
+#hint { position: fixed; bottom: 18px; left: 18px; color: var(--dim); font-size: 11px; z-index: 9; }
+#hint.hidden { display: none; }
+
+/* cue styles */
+.c-loud { font-weight: 800; font-size: 1.18em; color: #ff9550; }
+.c-soft { font-size: 0.82em; color: var(--soft); font-weight: 300; }
+.c-whisper { font-style: italic; font-size: 0.86em; border-bottom: 1px dotted var(--soft); padding-bottom: 1px; }
+.c-slow { letter-spacing: 0.14em; color: var(--slow); border-bottom: 2px solid rgba(90,169,255,0.5); padding-bottom: 2px; }
+.c-fast { letter-spacing: -0.02em; color: var(--fast); font-style: italic; }
+.c-up::before { content: "↑ "; color: #ffd700; font-weight: 700; }
+.c-up { color: #ffe066; }
+.c-down::before { content: "↓ "; color: #aaa; font-weight: 700; }
+.c-down { color: #aaa; }
+.c-emp { background: rgba(255,215,0,0.18); padding: 0 6px; border-radius: 4px; box-decoration-break: clone; }
+.c-urg { color: var(--urg); font-weight: 700; }
+.c-warm { color: var(--warm); }
+.c-breath::after { content: " ↻"; color: #4af; opacity: 0.55; font-size: 0.65em; margin-left: 4px; }
+.c-breath-block { display: block; text-align: center; color: #4af; opacity: 0.5; font-size: 0.4em; margin: 0.5em 0; letter-spacing: 0.3em; }
+
+/* new cues: rise / fall / hit / stretch (mostly karaoke effects) */
+.c-rise, .c-fall { color: inherit; }
+.c-hit { font-weight: 800; color: #ff6b3d; }
+.c-stretch { letter-spacing: 0.05em; color: #d8b4fe; }
+/* visual hints in scroll mode */
+.c-rise::before { content: "⤴ "; color: #ffd700; font-weight: 700; opacity: 0.6; }
+.c-fall::before { content: "⤵ "; color: #aaa; font-weight: 700; opacity: 0.6; }
+
+/* karaoke mode */
+#karaoke { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; padding: 6vw; z-index: 4; }
+#card { font-size: 5rem; line-height: 1.4; text-align: center; max-width: 94vw; font-weight: 700; letter-spacing: -0.01em; }
+#card .kw { display: inline-block; transition: opacity 0.18s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.18s, text-shadow 0.18s, letter-spacing 0.3s; opacity: 0.32; padding: 0 0.05em; transform: translateY(var(--pitch-y, 0px)); }
+#card .kw.past { opacity: 0.55; }
+#card .kw.active { opacity: 1; transform: translateY(var(--pitch-y, 0px)) scale(1.07); color: var(--accent); text-shadow: 0 0 32px rgba(255,122,0,0.45); }
+/* pause marker: invisible in scroll (zero-width for guide detection), hidden in karaoke until active */
+.c-pause-marker { display: inline-block; width: 0; overflow: hidden; }
+body.mode-karaoke .c-pause-marker { display: none; width: auto; overflow: visible; }
+.c-pause-marker.active {
+  display: inline-block;
+  font-size: 0.32em;
+  color: #5aa9ff;
+  opacity: 0.85;
+  letter-spacing: 0.08em;
+  margin: 0 0.5em;
+  vertical-align: middle;
+  text-transform: lowercase;
+  font-weight: 500;
+  font-style: normal;
+  white-space: nowrap;
+}
+.c-pause-marker.active::before {
+  content: "( pause " attr(data-pause) "s )";
+}
+.c-pause-marker.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #5aa9ff;
+  margin-top: 3px;
+  transform-origin: left center;
+  animation: pauseDrain var(--dur, 1s) linear forwards;
+}
+@keyframes pauseDrain {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+/* word held during pause (blue glow so you don't lose your place) */
+#card .kw.held { color: #5aa9ff !important; text-shadow: 0 0 28px rgba(90,169,255,0.55) !important; }
+/* hit: snap-scale burst on activate */
+#card .c-hit .kw.active { animation: kHit 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; }
+@keyframes kHit {
+  0% { transform: translateY(var(--pitch-y, 0px)) scale(1.4); }
+  100% { transform: translateY(var(--pitch-y, 0px)) scale(1.07); }
+}
+/* stretch: expand letters when active */
+#card .c-stretch .kw.active { letter-spacing: 0.35em; }
+/* preserve cue colors when active by overriding only opacity */
+#card .c-emp .kw.active, #card .c-loud .kw.active, #card .c-urg .kw.active,
+#card .c-warm .kw.active, #card .c-up .kw.active, #card .c-fast .kw.active,
+#card .c-slow .kw.active, #card .c-soft .kw.active, #card .c-whisper .kw.active,
+#card .c-down .kw.active { color: inherit; text-shadow: 0 0 32px currentColor; }
+#cardNav { display: none; position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); gap: 12px; align-items: center; color: var(--dim); font-size: 12px; z-index: 9; }
+#cardNav button { background: transparent; color: var(--fg); border: 1px solid #2a2a2a; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 16px; padding: 0; line-height: 1; }
+#cardNav button:hover { border-color: var(--accent); color: var(--accent); }
+#cardNav .idx { padding: 0 8px; min-width: 64px; text-align: center; color: var(--fg); }
+
+body.mode-karaoke #scroll, body.mode-karaoke #guide, body.mode-karaoke #progress { display: none; }
+body.mode-karaoke #karaoke { display: flex; }
+body.mode-karaoke #cardNav { display: flex; }
+
+/* edit modal */
+#edit { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; z-index: 20; padding: 40px; flex-direction: column; }
+#edit.show { display: flex; }
+#edit h3 { margin-bottom: 12px; color: var(--accent); }
+#edit textarea { flex: 1; background: #111; color: var(--fg); border: 1px solid #2a2a2a; border-radius: 8px; padding: 16px; font-family: 'JetBrains Mono', Menlo, monospace; font-size: 14px; line-height: 1.6; resize: none; }
+#edit .actions { margin-top: 12px; display: flex; gap: 10px; justify-content: flex-end; }
+#edit button { padding: 8px 16px; border-radius: 6px; border: 1px solid #2a2a2a; background: #1a1a1a; color: var(--fg); cursor: pointer; font: inherit; }
+#edit button.primary { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div id="controls">
+  <button id="play" title="Space">▶ Play</button>
+  <button id="reset" title="R">⟲</button>
+  <div class="field"><label>Speed</label><input id="speedRange" type="range" min="40" max="220" value="100"><span class="val" id="speedVal">100</span>wpm</div>
+  <div class="field"><label>Size</label><input id="sizeRange" type="range" min="2" max="8" step="0.25" value="4"><span class="val" id="sizeVal">4</span>rem</div>
+  <button id="modeBtn" title="K">Karaoke</button>
+  <button id="tickBtn" title="T — Tick on word change">🔇 Tick</button>
+  <button id="mirror" title="M">Mirror</button>
+  <button id="full" title="F">Fullscreen</button>
+  <div class="field"><label>Script</label><select id="scriptSel" style="background:#111;color:var(--fg);border:1px solid #2a2a2a;padding:4px 8px;border-radius:5px;font:inherit;"><option value="">(default)</option></select></div>
+  <button id="editBtn">Edit Script</button>
+  <button id="legendBtn" title="L">Legend</button>
+  <button id="hideBtn" title="H">Hide UI</button>
+</div>
+
+<div id="guide"></div>
+
+<div id="stage"><div id="scroll"></div></div>
+
+<div id="legend">
+  <h4>Delivery Cues</h4>
+  <div><code>{loud}…{/}</code> <span class="c-loud">command the room</span> · 1.25×</div>
+  <div><code>{soft}…{/}</code> <span class="c-soft">drop the energy</span> · 0.85×</div>
+  <div><code>{whisper}…{/}</code> <span class="c-whisper">pull them closer</span> · 1.15×</div>
+  <div><code>{slow}…{/}</code> <span class="c-slow">let it land</span> · 1.6×</div>
+  <div><code>{fast}…{/}</code> <span class="c-fast">build excitement</span> · 0.6×</div>
+  <div><code>{emp}…{/}</code> <span class="c-emp">emphasis</span> · 1.4×</div>
+  <div><code>{urg}…{/}</code> <span class="c-urg">urgent / stakes</span> · 1.1×</div>
+  <div><code>{warm}…{/}</code> <span class="c-warm">empathetic</span> · 1.1×</div>
+  <div><code>{up}…{/}</code> <span class="c-up">pitch rises</span></div>
+  <div><code>{down}…{/}</code> <span class="c-down">pitch falls</span></div>
+  <div><code>{rise}…{/}</code> <span class="c-rise">multi-word lift</span></div>
+  <div><code>{fall}…{/}</code> <span class="c-fall">multi-word drop</span></div>
+  <div><code>{hit}…{/}</code> <span class="c-hit">snap-beat</span> · 1.5×</div>
+  <div><code>{stretch}…{/}</code> <span class="c-stretch">elongate</span> · 2.0×</div>
+  <div><code>{pause:N}</code> inline pause, N seconds (held in blue)</div>
+  <div><code>{breath}</code> breath mark<span class="c-breath"></span></div>
+  <div style="color:var(--dim);margin-top:6px;font-size:11px">Cues stack: <code>{slow}{emp}word{/}{/}</code> = 1.6×1.4 = 2.24×</div>
+  <hr>
+  <div class="key">Space play · ↑↓ speed · ←→ card · +/− size · R reset · F full · M mirror · K mode · L legend · H hide · E edit</div>
+</div>
+
+<div id="hint">Space to play · L for legend · H to hide UI</div>
+
+<div id="karaoke"><div id="card"></div></div>
+<div id="cardNav">
+  <button id="prevCard" title="←">‹</button>
+  <span class="idx"><span id="cardIdx">1</span> / <span id="cardTotal">1</span></span>
+  <button id="nextCard" title="→">›</button>
+</div>
+
+<div id="edit">
+  <h3>Edit Script</h3>
+  <textarea id="editArea" spellcheck="false"></textarea>
+  <div class="actions">
+    <button id="editResetFile" title="Discard local edits and reload from file">↻ Reset to file</button>
+    <button id="editCancel">Cancel</button>
+    <button id="editSave" class="primary">Reload</button>
+  </div>
+</div>
+
+<script type="text/teleprompter" id="src">
+{warm}Here's something most restaurant owners{/} {emp}can't tell you{/}.
+
+{slow}I run a fried chicken place in Indonesia.{/} {rise}One hundred thirty million rupiah a month.{/}
+
+And here's what nobody breaks down on camera —
+{up}what does {hit}one{/} piece of chicken actually cost me?{/}
+
+{slow}Stay with me.{/}
+
+A live chicken — {emp}one point eight kilograms{/} — costs me {emp}twenty-two thousand rupiah{/} per kilo.
+
+So that bird is{pause:0.4} {hit}thirty-nine thousand six hundred{/} in.
+
+But here's the trick. {up}It's not one cost.{/} It's {fast}seven{/} costs.
+
+The {emp}wings{/} go to a separate menu.
+The {emp}liver and gizzard{/} sell out in sets — one thousand rupiah a set.
+The {emp}head and legs{/} — gone. {whisper}Charity, staff meals.{/}
+
+So I subtract those. About {fast}five thousand rupiah{/} in byproduct value.
+
+{slow}What's left?{/} {loud}Thirty-three thousand{/}, divided across {emp}nine main pieces{/}.
+
+{rise}Four thousand four hundred rupiah{/}{pause:0.6} {hit}per piece.{/}
+
+{warm}That's the number that runs my whole business.{/}
+
+Because in February, chicken hit {urg}twenty-eight thousand a kilo{/}. {fast}Government policy, supply squeeze, doesn't matter why{/} — my cost per piece jumped to {hit}{urg}five thousand six hundred.{/}{/}
+
+{slow}On a fifteen thousand rupiah meal,{/} that's the difference between {emp}twenty percent margin{/} and {fall}{urg}twelve percent{/}{/}.
+
+{warm}Most operators don't feel that until the month-end ledger lands.{/}
+{slow}I felt it the {stretch}day{/} prices moved.{/}
+
+{loud}Because I{pause:0.3} {hit}knew{/} the number.{/}
+
+{up}If you run a food business —{/} {emp}any{/} food business — and you {emp}can't tell me your cost per piece in thirty seconds,{/} {whisper}you're flying blind.{/}
+
+{warm}That's it.{/} {warm}That's the whole thing.{/}
+</script>
+
+<script>
+// ============== Tick sound ==============
+const TICK_KEY = 'teleprompter.tick';
+let tickOn = localStorage.getItem(TICK_KEY) === '1';
+let audioCtx = null;
+function ensureAudio() {
+  if (!audioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (Ctx) audioCtx = new Ctx();
+  }
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function playTick() {
+  if (!tickOn) return;
+  const ctx = ensureAudio();
+  if (!ctx) return;
+  const t = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'square';
+  osc.frequency.setValueAtTime(1800, t);
+  osc.frequency.exponentialRampToValueAtTime(900, t + 0.03);
+  gain.gain.setValueAtTime(0.0001, t);
+  gain.gain.exponentialRampToValueAtTime(0.18, t + 0.002);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.045);
+  osc.connect(gain).connect(ctx.destination);
+  osc.start(t);
+  osc.stop(t + 0.05);
+}
+function updateTickBtn() {
+  const btn = document.getElementById('tickBtn');
+  btn.textContent = tickOn ? '🔊 Tick' : '🔇 Tick';
+  btn.classList.toggle('active', tickOn);
+}
+
+// ============== Parser ==============
+const TAGS = ['loud','soft','whisper','slow','fast','up','down','emp','urg','warm','rise','fall','hit','stretch'];
+
+// Karaoke per-word duration multiplier per cue
+const CUE_MULT = {
+  loud: 1.25, soft: 0.85, whisper: 1.15,
+  slow: 1.6, fast: 0.6,
+  emp: 1.4, urg: 1.1, warm: 1.1,
+  up: 1.0, down: 1.0,
+  rise: 1.0, fall: 1.0,
+  hit: 1.5, stretch: 2.0,
+};
+
+// Syllable counting for proportional karaoke dwell time
+function countNumSyllables(n) {
+  if (!n || n <= 0) return 1;
+  const small = [2,1,1,1,1,1,1,2,1,1, 1,3,2,3,3,2,2,3,2,2]; // zero–nineteen
+  const tens  = [0,0,2,2,2,2,2,3,2,2]; // 20–90
+  let s = 0;
+  if (n >= 1e9) { s += countNumSyllables(Math.floor(n/1e9)) + 3; n %= 1e9; }
+  if (n >= 1e6) { s += countNumSyllables(Math.floor(n/1e6)) + 2; n %= 1e6; }
+  if (n >= 1e3) { s += countNumSyllables(Math.floor(n/1e3)) + 2; n %= 1e3; }
+  if (n >= 100) { s += countNumSyllables(Math.floor(n/100)) + 2; n %= 100; }
+  if (n >= 20)  { s += tens[Math.floor(n/10)] + (n%10 ? small[n%10] : 0); }
+  else if (n > 0) { s += small[n]; }
+  return Math.max(1, s);
+}
+
+function syllableCount(word) {
+  if (!word || !word.trim()) return 1;
+  const raw = word.trim();
+  // Detect numeric tokens (optional Rp/$ prefix, comma/dot separators, optional % suffix)
+  const stripped = raw.replace(/^[Rp$€£¥]+/i, '').replace(/[%]/g, '').replace(/[,.']/g, '');
+  if (/^\d+$/.test(stripped) && stripped.length > 0) {
+    return countNumSyllables(parseInt(stripped, 10));
+  }
+  // Regular word: vowel-group heuristic
+  const w = raw.toLowerCase().replace(/[^a-z]/g, '');
+  if (!w) return 1;
+  let count = (w.match(/[aeiouy]+/g) || []).length;
+  if (w.length > 2 && w.endsWith('e') && !w.endsWith('le')) count--;
+  if (w.endsWith('es') && count > 1) count--;
+  if (w.endsWith('ed') && count > 1 && !/[td]ed$/.test(w)) count--;
+  return Math.max(1, count);
+}
+
+function transform(text) {
+  // Pauses: inline word-level markers, invisible until karaoke activates them
+  text = text.replace(/\{pause:(\d+(?:\.\d+)?)\}/g, '<span class="c-pause-marker" data-pause="$1" data-dur="$1" style="--dur:$1s"></span>');
+  text = text.replace(/\{breath\}/g, '<span class="c-breath"></span>');
+
+  // Recursive nesting: keep replacing until stable
+  let prev;
+  do {
+    prev = text;
+    for (const t of TAGS) {
+      const re = new RegExp(`\\{${t}\\}([^{}]*?)\\{/\\}`, 'g');
+      text = text.replace(re, `<span class="c-${t}">$1</span>`);
+    }
+  } while (text !== prev);
+  return text;
+}
+
+function parse(src) {
+  const lines = src.trim().split(/\n/);
+  const out = [];
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!line) continue;
+
+    if (/^\{pause:\d+(?:\.\d+)?\}$/.test(line)) continue; // pauses removed
+
+    if (line === '{breath}') {
+      out.push(`<p class="c-breath-block">↻ breath</p>`);
+      continue;
+    }
+
+    out.push('<p>' + transform(line) + '</p>');
+  }
+  return out.join('\n');
+}
+
+// ============== State ==============
+const scroll = document.getElementById('scroll');
+const stage = document.getElementById('stage');
+const srcEl = document.getElementById('src');
+const scriptSel = document.getElementById('scriptSel');
+
+// Per-script localStorage. Empty key = embedded default (legacy key kept for back-compat).
+const LEGACY_KEY = 'teleprompter.script';
+const SELECTED_KEY = 'teleprompter.selected';
+const cacheKey = (file) => file ? `teleprompter.script.${file}` : LEGACY_KEY;
+
+let currentFile = '';     // '' = embedded default
+let currentText = '';     // resolved script text in memory
+let manifest = [];        // [{file, title}]
+
+function getCached(file) { return localStorage.getItem(cacheKey(file)); }
+function setCached(file, s) { localStorage.setItem(cacheKey(file), s); }
+function clearCached(file) { localStorage.removeItem(cacheKey(file)); }
+
+async function fetchScriptFile(file) {
+  // Returns null if fetch unavailable (file:// open) or 404
+  try {
+    const res = await fetch(`scripts/${file}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.text();
+  } catch { return null; }
+}
+
+async function loadManifest() {
+  try {
+    const res = await fetch('scripts/index.json', { cache: 'no-store' });
+    if (!res.ok) return [];
+    const json = await res.json();
+    return Array.isArray(json) ? json : [];
+  } catch { return []; }
+}
+
+function populateSelector() {
+  scriptSel.innerHTML = '<option value="">(default — embedded)</option>';
+  for (const m of manifest) {
+    const opt = document.createElement('option');
+    opt.value = m.file;
+    opt.textContent = m.title || m.file;
+    scriptSel.appendChild(opt);
+  }
+  scriptSel.value = currentFile;
+}
+
+async function resolveScript(file) {
+  // Priority: localStorage edits for this file → fetched file content → embedded default
+  const cached = getCached(file);
+  if (cached != null) return cached;
+  if (file) {
+    const txt = await fetchScriptFile(file);
+    if (txt != null) return txt;
+  }
+  return srcEl.textContent;
+}
+
+async function selectScript(file) {
+  currentFile = file || '';
+  localStorage.setItem(SELECTED_KEY, currentFile);
+  currentText = await resolveScript(currentFile);
+  scriptSel.value = currentFile;
+  render();
+}
+
+function saveScript(s) { currentText = s; setCached(currentFile, s); }
+
+function render() {
+  scroll.innerHTML = parse(currentText);
+  scrollPos = 0;
+  apply();
+  buildCards();
+  karaokeAccum = 0;
+  if (mode === 'karaoke') renderCard();
+}
+
+let userPlaying = false;
+let systemHold = false;
+let wpm = 100;
+let lastT = 0;
+let scrollPos = 0;
+
+// karaoke mode state
+let mode = 'scroll'; // 'scroll' | 'karaoke'
+let cards = [];      // [{ html, itemCount }]
+let cardIdx = 0;
+let wordIdx = 0;
+let karaokeAccum = 0;
+
+const playBtn = document.getElementById('play');
+const speedRange = document.getElementById('speedRange');
+const speedVal = document.getElementById('speedVal');
+const sizeRange = document.getElementById('sizeRange');
+const sizeVal = document.getElementById('sizeVal');
+const progress = document.getElementById('progress');
+const controls = document.getElementById('controls');
+const legend = document.getElementById('legend');
+const hint = document.getElementById('hint');
+
+speedRange.addEventListener('input', () => { wpm = +speedRange.value; speedVal.textContent = wpm; });
+sizeRange.addEventListener('input', () => {
+  scroll.style.fontSize = sizeRange.value + 'rem';
+  sizeVal.textContent = sizeRange.value;
+});
+playBtn.addEventListener('click', togglePlay);
+document.getElementById('reset').addEventListener('click', resetAll);
+
+function resetAll() {
+  scrollPos = 0;
+  resetPauses();
+  apply();
+  cardIdx = 0;
+  wordIdx = 0;
+  karaokeAccum = 0;
+  if (mode === 'karaoke') renderCard();
+}
+document.getElementById('mirror').addEventListener('click', toggleMirror);
+document.getElementById('full').addEventListener('click', toggleFullscreen);
+document.getElementById('legendBtn').addEventListener('click', () => legend.classList.toggle('hidden'));
+document.getElementById('hideBtn').addEventListener('click', () => {
+  controls.classList.toggle('hidden');
+  hint.classList.toggle('hidden');
+});
+
+// edit modal
+const editModal = document.getElementById('edit');
+const editArea = document.getElementById('editArea');
+document.getElementById('editBtn').addEventListener('click', () => {
+  editArea.value = currentText.trim();
+  editModal.classList.add('show');
+  editArea.focus();
+});
+document.getElementById('editCancel').addEventListener('click', () => editModal.classList.remove('show'));
+document.getElementById('editSave').addEventListener('click', () => {
+  saveScript(editArea.value);
+  editModal.classList.remove('show');
+  render();
+});
+document.getElementById('editResetFile').addEventListener('click', async () => {
+  clearCached(currentFile);
+  currentText = await resolveScript(currentFile);
+  editArea.value = currentText.trim();
+  render();
+});
+scriptSel.addEventListener('change', () => selectScript(scriptSel.value));
+
+function togglePlay() {
+  userPlaying = !userPlaying;
+  playBtn.textContent = userPlaying ? '❚❚ Pause' : '▶ Play';
+  playBtn.classList.toggle('active', userPlaying);
+  lastT = performance.now();
+  if (userPlaying) requestAnimationFrame(tick);
+}
+
+function toggleMirror() {
+  const on = scroll.style.transform.includes('scaleX(-1)');
+  applyTransform(on ? 1 : -1);
+  document.body.classList.toggle('mirror', !on);
+}
+let mirrorX = 1;
+function applyTransform(mx) {
+  mirrorX = mx;
+  apply();
+}
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+  else document.exitFullscreen();
+}
+
+function tick(t) {
+  if (!userPlaying) return;
+  const dt = Math.min((t - lastT) / 1000, 0.2);
+  lastT = t;
+  if (mode === 'scroll') {
+    if (!systemHold) {
+      const fontPx = parseFloat(getComputedStyle(scroll).fontSize);
+      const lineHeight = fontPx * 1.55;
+      const pxPerSec = lineHeight * wpm / (60 * 7);
+      scrollPos += pxPerSec * dt;
+      apply();
+      checkPauses();
+    }
+  } else {
+    karaokeTick(dt);
+  }
+  requestAnimationFrame(tick);
+}
+
+// ============== Karaoke ==============
+function buildCard(line) {
+  const html = transform(line);
+  const div = document.createElement('div');
+  div.innerHTML = html;
+  const walker = document.createTreeWalker(div, NodeFilter.SHOW_TEXT);
+  const texts = [];
+  while (walker.nextNode()) texts.push(walker.currentNode);
+  let wordCount = 0;
+  for (const node of texts) {
+    const parts = node.textContent.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    for (const p of parts) {
+      if (!p) continue;
+      if (/\S/.test(p)) {
+        const span = document.createElement('span');
+        span.className = 'kw';
+        span.dataset.i = wordCount++;
+        span.textContent = p;
+        frag.appendChild(span);
+      } else {
+        frag.appendChild(document.createTextNode(p));
+      }
+    }
+    node.parentNode.replaceChild(frag, node);
+  }
+
+  // per-word duration multiplier: walk up cue ancestors, multiply
+  div.querySelectorAll('.kw').forEach(kw => {
+    let mult = 1;
+    let el = kw.parentElement;
+    while (el && el !== div) {
+      if (el.classList) {
+        el.classList.forEach(cls => {
+          if (cls.startsWith('c-')) {
+            const m = CUE_MULT[cls.slice(2)];
+            if (m) mult *= m;
+          }
+        });
+      }
+      el = el.parentElement;
+    }
+    kw.dataset.mult = mult.toFixed(2);
+    kw.dataset.syl = syllableCount(kw.textContent);
+  });
+
+  // pitch contour: rise lifts each word higher, fall drops each lower
+  div.querySelectorAll('.c-rise, .c-fall').forEach(cue => {
+    const words = cue.querySelectorAll('.kw');
+    if (!words.length) return;
+    const dir = cue.classList.contains('c-rise') ? -1 : 1;
+    const max = 22; // px lift/drop range
+    words.forEach((w, i) => {
+      const offset = (i / Math.max(1, words.length - 1)) * max * dir;
+      w.style.setProperty('--pitch-y', offset.toFixed(1) + 'px');
+    });
+  });
+
+  // total karaoke items = words + pause markers
+  const itemCount = div.querySelectorAll('.kw, .c-pause-marker').length;
+  return { html: div.innerHTML, itemCount };
+}
+
+function buildCards() {
+  const src = currentText.trim();
+  cards = src.split(/\n/)
+    .map(l => l.trim())
+    .filter(l => l && !/^\{pause:\d+(?:\.\d+)?\}$/.test(l) && l !== '{breath}')
+    .map(buildCard);
+  document.getElementById('cardTotal').textContent = cards.length;
+}
+
+function renderCard() {
+  if (!cards.length) { document.getElementById('card').textContent = '(empty)'; return; }
+  cardIdx = Math.max(0, Math.min(cardIdx, cards.length - 1));
+  document.getElementById('card').innerHTML = cards[cardIdx].html;
+  document.getElementById('cardIdx').textContent = cardIdx + 1;
+  wordIdx = 0;
+  highlightWord(0);
+}
+
+function getItems() {
+  return document.getElementById('card').querySelectorAll('.kw, .c-pause-marker');
+}
+
+function highlightWord(i) {
+  const items = getItems();
+  const cur = items[i];
+  const isPause = cur && cur.classList.contains('c-pause-marker');
+  items.forEach((el, idx) => {
+    el.classList.remove('active', 'past', 'held');
+    if (idx < i) el.classList.add('past');
+    else if (idx === i) el.classList.add('active');
+  });
+  if (isPause) {
+    // hold the most recent .kw before this pause in blue
+    for (let j = i - 1; j >= 0; j--) {
+      if (items[j].classList.contains('kw')) {
+        items[j].classList.remove('past');
+        items[j].classList.add('active', 'held');
+        break;
+      }
+    }
+  }
+}
+
+function karaokeTick(dt) {
+  const card = cards[cardIdx];
+  if (!card) return;
+  if (card.itemCount === 0) { nextCard(); return; }
+  const baseDur = 60 / wpm;
+  const items = getItems();
+  const cur = items[wordIdx];
+  let dur;
+  if (!cur) { dur = baseDur; }
+  else if (cur.classList.contains('c-pause-marker')) {
+    dur = parseFloat(cur.dataset.pause || '0.5');
+  } else {
+    const mult = parseFloat(cur.dataset.mult || '1');
+    const syl = parseFloat(cur.dataset.syl || '1');
+    dur = baseDur * mult * ((1 + syl) / 2);
+  }
+  karaokeAccum += dt;
+  if (karaokeAccum >= dur) {
+    karaokeAccum -= dur;
+    wordIdx++;
+    if (wordIdx >= card.itemCount) {
+      karaokeAccum = -0.5; // dwell at end of card
+      nextCard();
+      return;
+    }
+    const nextEl = getItems()[wordIdx];
+    if (nextEl && !nextEl.classList.contains('c-pause-marker')) playTick();
+    highlightWord(wordIdx);
+  }
+}
+
+function nextCard() {
+  if (cardIdx < cards.length - 1) { cardIdx++; renderCard(); }
+  else {
+    userPlaying = false;
+    playBtn.textContent = '▶ Play';
+    playBtn.classList.remove('active');
+  }
+}
+function prevCard() {
+  if (cardIdx > 0) { cardIdx--; karaokeAccum = 0; renderCard(); }
+}
+
+function toggleMode() {
+  mode = mode === 'scroll' ? 'karaoke' : 'scroll';
+  document.body.classList.toggle('mode-karaoke', mode === 'karaoke');
+  document.getElementById('modeBtn').textContent = mode === 'karaoke' ? 'Scroll' : 'Karaoke';
+  document.getElementById('modeBtn').classList.toggle('active', mode === 'karaoke');
+  if (mode === 'karaoke') {
+    if (!cards.length) buildCards();
+    cardIdx = 0;
+    karaokeAccum = 0;
+    renderCard();
+  }
+}
+
+document.getElementById('modeBtn').addEventListener('click', toggleMode);
+document.getElementById('tickBtn').addEventListener('click', () => {
+  tickOn = !tickOn;
+  localStorage.setItem(TICK_KEY, tickOn ? '1' : '0');
+  updateTickBtn();
+  if (tickOn) { ensureAudio(); playTick(); }
+});
+updateTickBtn();
+document.getElementById('prevCard').addEventListener('click', prevCard);
+document.getElementById('nextCard').addEventListener('click', nextCard);
+
+function checkPauses() {
+  const guideY = window.innerHeight * 0.4;
+  const els = scroll.querySelectorAll('[data-dur]:not([data-done])');
+  for (const el of els) {
+    const rect = el.getBoundingClientRect();
+    // trigger when the element's top has reached/crossed the guide line
+    if (rect.top <= guideY && rect.bottom >= 0) {
+      const dur = parseFloat(el.dataset.dur || '1');
+      el.setAttribute('data-done', '1');
+      el.classList.add('active');
+      systemHold = true;
+      setTimeout(() => {
+        el.classList.remove('active');
+        systemHold = false;
+      }, dur * 1000);
+      break; // one at a time
+    }
+  }
+}
+
+function resetPauses() {
+  scroll.querySelectorAll('[data-dur][data-done]').forEach(el => {
+    el.removeAttribute('data-done');
+    el.classList.remove('active');
+  });
+  systemHold = false;
+}
+
+function apply() {
+  scroll.style.transform = `translate(0, ${-scrollPos}px) scaleX(${mirrorX})`;
+  const max = scroll.scrollHeight - window.innerHeight;
+  progress.style.width = Math.min(100, Math.max(0, (scrollPos / max) * 100)) + '%';
+}
+
+// keyboard
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (editModal.classList.contains('show')) return;
+  switch (e.key) {
+    case ' ': e.preventDefault(); togglePlay(); break;
+    case 'ArrowUp': e.preventDefault(); speedRange.value = Math.min(220, +speedRange.value + 5); speedRange.dispatchEvent(new Event('input')); break;
+    case 'ArrowDown': e.preventDefault(); speedRange.value = Math.max(40, +speedRange.value - 5); speedRange.dispatchEvent(new Event('input')); break;
+    case '+': case '=': sizeRange.value = Math.min(8, +sizeRange.value + 0.25); sizeRange.dispatchEvent(new Event('input')); break;
+    case '-': sizeRange.value = Math.max(2, +sizeRange.value - 0.25); sizeRange.dispatchEvent(new Event('input')); break;
+    case 'r': case 'R': resetAll(); break;
+    case 'f': case 'F': toggleFullscreen(); break;
+    case 'm': case 'M': toggleMirror(); break;
+    case 'l': case 'L': legend.classList.toggle('hidden'); break;
+    case 'h': case 'H': controls.classList.toggle('hidden'); hint.classList.toggle('hidden'); break;
+    case 'e': case 'E': document.getElementById('editBtn').click(); break;
+    case 'PageDown': e.preventDefault(); scrollPos += window.innerHeight * 0.5; apply(); break;
+    case 'PageUp': e.preventDefault(); scrollPos = Math.max(0, scrollPos - window.innerHeight * 0.5); apply(); break;
+    case 'k': case 'K': toggleMode(); break;
+    case 't': case 'T': document.getElementById('tickBtn').click(); break;
+    case 'ArrowLeft': if (mode === 'karaoke') { e.preventDefault(); prevCard(); } break;
+    case 'ArrowRight': if (mode === 'karaoke') { e.preventDefault(); nextCard(); } break;
+  }
+});
+
+// auto-hide controls during playback
+let idle;
+function poke() {
+  controls.classList.remove('hidden');
+  hint.classList.remove('hidden');
+  clearTimeout(idle);
+  idle = setTimeout(() => {
+    if (userPlaying) { controls.classList.add('hidden'); hint.classList.add('hidden'); }
+  }, 2500);
+}
+document.addEventListener('mousemove', poke);
+
+// init
+(async () => {
+  manifest = await loadManifest();
+  // Migrate legacy single-key cache if present and no per-file cache exists yet
+  const legacy = localStorage.getItem(LEGACY_KEY);
+  let initial = localStorage.getItem(SELECTED_KEY) || '';
+  // If selected file is no longer in manifest, fall back to default
+  if (initial && !manifest.some(m => m.file === initial)) initial = '';
+  populateSelector();
+  currentFile = initial;
+  scriptSel.value = currentFile;
+  currentText = await resolveScript(currentFile);
+  // If user had legacy edits and is on default, surface them
+  if (!currentFile && legacy != null) currentText = legacy;
+  render();
+  poke();
+})();
+</script>
+
+</body>
+</html>

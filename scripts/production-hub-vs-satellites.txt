@@ -1,0 +1,22 @@
+{warm}Most food founders open the second outlet too early.{/}
+
+{slow}I almost did.{/}
+
+{up}The instinct is{/} — {fast}it works once, just copy it five times.{/}
+
+{urg}But you don't copy a restaurant.{/} {emp}You copy chaos.{/}
+
+{slow}Twice the staff problems. Twice the supply leaks. Twice the bad nights.{/}
+
+{rise}So I went the other way.{/} {hit}Production hub.{/}
+
+{warm}One central kitchen. One sourcing pipeline. One quality bar.{/}
+
+{up}Outlets become {emp}distribution points{/}, not full kitchens.{/}
+
+{slow}It's slower to set up.{/}
+{loud}It's {hit}ten{/} times easier to scale.{/}
+
+{whisper}Because you're scaling one process, not five copies of a problem.{/}
+
+{warm}If your second outlet feels like opening from scratch —{/} {emp}you skipped the hub.{/}

@@ -1,0 +1,26 @@
+{warm}One discipline I owe my whole business to.{/}
+
+{emp}Buffer stock.{/}
+
+{slow}Most operators run lean.{/} {fast}Two days of supply, three at most. Optimize the cash.{/}
+
+{up}I run fat on purpose.{/}
+
+{slow}Two weeks of {emp}critical{/} ingredients.{/} {soft}Always.{/}
+
+{rise}Sounds wasteful{/} — {hit}until the supply chain breaks.{/}
+
+{warm}And it always breaks.{/}
+
+{fast}Vendor truck breaks down. Supplier goes bankrupt. Government changes import rules overnight.{/}
+
+{slow}When that happens —{/} {urg}lean operators close for three days.{/}
+
+{loud}I keep selling.{/}
+
+{whisper}Three days of revenue is more than three months of buffer cost.{/}
+
+{up}Lean is a strategy for stable markets.{/}
+{rise}Buffer is a strategy for {emp}reality.{/}
+
+{warm}Pick the one that fits the country you actually live in.{/}

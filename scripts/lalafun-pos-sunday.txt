@@ -1,0 +1,35 @@
+{warm}Sunday used to cost me {emp}nine and a half hours.{/}{/}
+
+{soft}I run a fried chicken restaurant in Kediri. LalaFun. Thirteen staff. Three shifts. About 200 orders a day.{/}
+
+Every Sunday I'd collect the week's expense slips — from the drawer, my wallet, the staff room clipboard.
+
+{slow}Oil. Ice. Packaging. Electricity.{/} Every rupiah out of the drawer had its own crumpled slip somewhere.
+
+{slow}I'd rewrite every one into a hardcover ledger. By hand.{/} Then open Excel. Retype it all. Again.
+
+{urg}Then compute payroll for thirteen people.{/} {fast}Base salary, attendance bonuses, late fines, cash advances. By hand.{/}
+
+{slow}{warm}"I could work the shop,{/} or I could work the paperwork.{/} Never both."{/}
+
+{urg}Stock was worse.{/} It lived on a whiteboard in the kitchen. Whoever crossed things off, did. Whoever was busy — didn't.
+
+One Sunday night we ran out of chicken at nine PM. {emp}Lost eighteen orders.{/} No warning. No alert. Just a marker and hope.
+
+{warm}So in January I stopped looking for an app that fit —{/} {hit}and built one.{/}
+
+Four weeks. Six modules. One database. One app on every shift phone.
+
+{slow}Every sale auto-deducts stock. Every expense logs itself at the POS the moment it's paid.{/}
+
+Stock hits a reorder point — it notifies me that morning. Not after we run out. {emp}Before.{/}
+
+Payroll computes live. Closes itself on the {emp}28th.{/} I tap close, print the sheet, count cash, hand it out.
+
+{rise}Last Sunday I opened the app on the couch.{/} Checked two things.
+
+{hit}Put it down.{/} {emp}Twenty minutes.{/} Then I left.
+
+{warm}Nine and a half hours down to twenty.{/} One month of build. One year of Sundays back.
+
+{soft}Three hundred and twelve hours saved. That's the trade.{/}

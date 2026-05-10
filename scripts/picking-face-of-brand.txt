@@ -1,0 +1,23 @@
+{warm}Our bakery has a face.{/} {emp}It's not me.{/}
+
+{slow}It's my partner.{/} {fast}She's the baker. She's the brand. She's the front.{/}
+
+{up}A lot of founders make the wrong call here.{/}
+
+{urg}They put themselves in front{/} — {whisper}because their ego needs it.{/}
+
+{slow}But the face of the brand isn't the loudest person.{/}
+{slow}It's the {emp}most aligned{/} person.{/}
+
+{rise}Aligned with the craft. Aligned with the customer. Aligned with the long game.{/}
+
+{loud}If that's not you —{/} {hit}step out of the photo.{/}
+
+{warm}My job is the engine room.{/} {warm}Numbers, supply, ops, hiring.{/}
+
+{up}Her job is the story —{/} {emp}because she lives it.{/}
+
+{slow}Two roles. One business.{/}
+
+{whisper}Don't be precious about which one is "the founder."{/}
+{warm}Be honest about which one customers will trust.{/}

@@ -1,0 +1,22 @@
+{warm}Most online operators are one of two things.{/}
+
+{soft}Hustlers selling the dream.{/}
+{soft}Or coders selling the tool.{/}
+
+{slow}I'm trying something different.{/} {emp}Operator-builder.{/}
+
+{up}I run real businesses —{/} {fast}fried chicken, noodles, agency, bakery.{/}
+{up}And I build software around them —{/} {fast}POS systems, AI assistants, internal tools.{/}
+
+{rise}The operator side keeps me honest.{/} {hit}The builder side keeps me leveraged.{/}
+
+{slow}Most content creators have never run a payroll.{/}
+{slow}Most builders have never had to fire a cook.{/}
+
+{loud}I do both.{/} {whisper}Every week.{/}
+
+{warm}So when I share something —{/} {emp}it's tested in a real business{/}, {emp}not a Twitter thread.{/}
+
+{up}If you're picking a positioning —{/} {warm}don't pick what's loud.{/}
+
+{rise}Pick the one only you can defend{/} — {hit}because you're actually doing it.{/}

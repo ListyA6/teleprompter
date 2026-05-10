@@ -1,0 +1,29 @@
+{warm}Before LalaFun I thought I understood operations.{/}
+
+{slow}Then we started doing 200 orders a day.{/}
+
+{soft}That's not a lot by chain restaurant standards. For a single outlet in Kediri with 13 staff — it's enough to expose everything.{/}
+
+{up}High transaction volume is a pressure test.{/} Whatever is weak in your system, it will find it.
+
+{slow}The first thing it taught me:{/} your staff can't remember everything.
+
+If a step in the process relies on someone's memory — a stock count, a cash note, a shift handover detail — {urg}that step will eventually fail.{/}
+
+{slow}Two hundred orders a day means two hundred chances for the right thing to happen,{/} and two hundred chances for the wrong thing to go unnoticed.
+
+{rise}So you stop relying on people to remember{/} and start designing systems that {hit}don't require memory at all.{/}
+
+{warm}The second thing it taught me:{/} patterns are invisible until you measure them.
+
+Which shift generates the most voids? Which menu item spikes on weekends? Which payment method causes the most drawer reconciliation gaps?
+
+{slow}I couldn't answer any of those questions before the POS.{/} Now I can answer them in thirty seconds.
+
+{up}Two hundred transactions a day creates two hundred data points.{/} If you're not capturing them, you're operating on intuition — and intuition gets expensive at scale.
+
+{slow}The system didn't change how many orders we take.{/} It changed how much I understand about those orders.
+
+{warm}Visibility is leverage.{/} At 200 orders a day, you need both.
+
+{soft}That's the real reason I built the thing.{/}

@@ -1,0 +1,24 @@
+{warm}Two restaurants, side by side.{/} {soft}Same menu, same price, same crowd.{/}
+
+{slow}One runs at {emp}twenty percent margin.{/} {slow}The other runs at {urg}twelve.{/}
+
+{up}From the outside —{/} {fast}they look identical.{/}
+
+{whisper}One pays the owner. The other slowly drains him.{/}
+
+{slow}The {emp}eight-point gap{/} is not luck.{/}
+
+{rise}It's a hundred small decisions —{/} {hit}made before the doors opened.{/}
+
+{fast}Vendor terms. Portion controls. Staffing curve. Energy use. Daily prep waste.{/}
+
+{loud}None of it is glamorous.{/}
+{warm}All of it is the difference between owning your life{/} — {emp}and just owning a job.{/}
+
+{slow}Here's the trap:{/} {urg}twelve-percent owners think they need more revenue.{/}
+
+{soft}They don't.{/} {emp}They need eight points of operational discipline.{/}
+
+{up}Before you push for growth —{/} {whisper}push for margin.{/}
+
+{warm}Growth on a broken margin{/} — {hit}just scales the leak.{/}

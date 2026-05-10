@@ -1,0 +1,29 @@
+{warm}People ask me why I didn't just buy a POS system.{/}
+
+{slow}There are hundreds of them. Some are actually good.{/}
+
+{soft}I looked at five. Tried three. Had a call with a sales rep.{/}
+
+{urg}Every single one was built for someone else's restaurant.{/}
+
+One was built for a café in Jakarta with table service and a barista workflow. One had a beautiful inventory module — built for a grocery store. One had payroll, but it assumed I was paying staff through bank transfer, not counting cash into envelopes at month end.
+
+{slow}None of them matched the actual shape of LalaFun.{/}
+
+{rise}Three shifts. Cash drawer. QRIS. GoFood and GrabFood split into separate buckets.{/} Thirteen staff with different attendance patterns. A kitchen that goes offline when the wifi blinks.
+
+{warm}Every SaaS I looked at wanted me to bend my operation to fit their software.{/}
+
+{hit}I bent the software to fit my operation instead.{/}
+
+{slow}Four weeks of build time.{/} Coding between shifts. Week four I trained the team. Then the ledger retired.
+
+{warm}The thing I didn't expect:{/} the moment you build your own system, you see your business differently.
+
+{slow}Because you had to define every rule.{/} What counts as a late fine. What triggers a reorder. What drawer closes which expense.
+
+{up}You can't be vague about your own operations when you're writing the code that runs them.{/}
+
+{soft}That clarity alone was worth the build time.{/}
+
+{slow}The 312 hours of admin saved every year is just the bonus.{/}

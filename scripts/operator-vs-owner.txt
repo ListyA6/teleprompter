@@ -1,0 +1,27 @@
+{warm}Most people who own a restaurant are not operators.{/}
+
+{slow}They are owners who hired someone to run it and hope that person cares as much as they do.{/}
+
+{soft}Sometimes that works. More often, it doesn't.{/}
+
+{up}I made the choice early to operate.{/} To show up. To understand the numbers. To know what a bad Monday looks like and why.
+
+{slow}Not because I had to.{/} Because the operator who understands the system is the one who can change it.
+
+{urg}You can't improve what you don't understand.{/} And you can't understand a restaurant from a distance.
+
+{slow}Here's what I mean by operator:{/} I know our daily revenue before I look at a report. I know roughly how much chicken we go through on a Saturday versus a Tuesday. I know which staff member is most reliable on a morning shift and which one needs covering.
+
+{warm}That's not micromanagement.{/} That's pattern recognition.
+
+{rise}And pattern recognition is where all the decisions come from.{/}
+
+{slow}The owner who shows up once a week doesn't build pattern recognition.{/} They build a report habit. Which is not the same thing.
+
+{hit}The system I built reflects what I know.{/} And I know it because I was there.
+
+{warm}The POS that runs LalaFun now —{/} I could only build it because I understood every step it replaced.
+
+{slow}If you're going to own a business, understand it first.{/} Operate it for at least a year before you step back.
+
+{soft}You'll build something very different when you know what you're actually automating.{/}

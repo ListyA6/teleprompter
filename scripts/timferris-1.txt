@@ -1,0 +1,25 @@
+{warm}First thing every morning —{/} {emp}ten to twenty minutes{/} of meditation.
+
+{slow}It's a tool.{/} {up}A tool for getting better at one specific thing —{/} watching your own thoughts without {emp}becoming{/} them.
+
+{slow}Here's how I see it.{/}
+
+Depression is a fixation on the {urg}past{/}. Anxiety is a fixation locked in the {urg}future{/}.
+
+When you take things personally — when you {slow}ruminate{/} — that's when you get caught in a {hit}loop{/}.
+
+{rise}Meditation trains you to step back and{/}{pause:0.4} {hit}observe{/} the loop.
+
+To note it. To let it go. To understand that every thought is just a {emp}passing phenomenon{/}.
+
+{warm}Nothing is permanent.{/} {slow}Nothing.{/}
+
+{up}I use transcendental meditation.{/} Found it {emp}extremely{/} useful.
+
+But the app I recommend is {loud}Waking Up{/} by Sam Harris. Do the intro course — it's {emp}excellent{/}.
+
+{rise}Ten minutes every morning. Thirty mornings. That consistency{/}{pause:0.3} {hit}will{/} build the ability.
+
+{warm}And once you can see your thoughts for what they are —{/} {slow}passing, impermanent, not you{/} — {warm}everything gets lighter.{/}
+
+{warm}Waking Up app.{/} {emp}That's{/} the place to start.
