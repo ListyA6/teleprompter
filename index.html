@@ -79,7 +79,7 @@ html, body { height: 100%; background: var(--bg); color: var(--fg); font-family:
 .c-fall::before { content: "⤵ "; color: #aaa; font-weight: 700; opacity: 0.6; }
 
 /* karaoke mode */
-#karaoke { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; padding: 6vw; z-index: 4; }
+#karaoke { display: none; position: fixed; inset: 0; align-items: center; justify-content: center; padding: 50px 6vw 68px; z-index: 4; }
 #card { font-size: 5rem; line-height: 1.4; text-align: center; max-width: 94vw; font-weight: 700; letter-spacing: -0.01em; }
 #card .kw { display: inline-block; transition: opacity 0.18s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.18s, text-shadow 0.18s, letter-spacing 0.3s; opacity: 0.32; padding: 0 0.05em; transform: translateY(var(--pitch-y, 0px)); }
 #card .kw.past { opacity: 0.55; }
@@ -171,7 +171,7 @@ body.mode-karaoke #cardNav { display: flex; }
   .field input[type=range] { width: 70px; }
   #scroll { font-size: 3rem; }
   #card { font-size: clamp(1.6rem, 9vh, 4rem); line-height: 1.3; }
-  #karaoke { padding: 2vw 5vw; }
+  #karaoke { padding: 36px 4vw 54px; }
   #cardNav { bottom: 8px; }
   #cardNav button { width: 40px; height: 40px; }
 }
