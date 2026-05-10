@@ -162,6 +162,8 @@ body.mode-karaoke #cardNav { display: flex; }
   #hint { display: none; }
   /* Bigger tap targets for card nav */
   #cardNav button { width: 44px; height: 44px; font-size: 20px; }
+  /* Smaller text — 5rem is way too big on phone */
+  #card { font-size: 2.6rem; line-height: 1.35; }
 }
 
 /* Landscape phone: max-height ~500px, squeeze everything */
@@ -170,7 +172,7 @@ body.mode-karaoke #cardNav { display: flex; }
   #controls button { padding: 3px 8px; }
   .field input[type=range] { width: 70px; }
   #scroll { font-size: 3rem; }
-  #card { font-size: clamp(1.6rem, 9vh, 4rem); line-height: 1.3; }
+  #card { font-size: clamp(1.2rem, 6vh, 2rem); line-height: 1.3; }
   #karaoke { padding: 36px 4vw 54px; }
   #cardNav { bottom: 8px; }
   #cardNav button { width: 40px; height: 40px; }
