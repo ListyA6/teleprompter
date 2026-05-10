@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <title>Teleprompter</title>
 <style>
 :root {
@@ -141,6 +141,41 @@ body.mode-karaoke #scroll, body.mode-karaoke #guide, body.mode-karaoke #progress
 body.mode-karaoke #karaoke { display: flex; }
 body.mode-karaoke #cardNav { display: flex; }
 
+/* ===== Mobile / Landscape Phone ===== */
+
+/* Single-row scrollable controls on touch devices */
+@media (pointer: coarse) {
+  #controls {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 6px 12px;
+    gap: 8px;
+    font-size: 11px;
+  }
+  #controls::-webkit-scrollbar { display: none; }
+  #controls button { flex-shrink: 0; padding: 5px 10px; white-space: nowrap; }
+  .field { flex-shrink: 0; }
+  .field input[type=range] { width: 80px; }
+  #legend { display: none !important; }
+  #hint { display: none; }
+  /* Bigger tap targets for card nav */
+  #cardNav button { width: 44px; height: 44px; font-size: 20px; }
+}
+
+/* Landscape phone: max-height ~500px, squeeze everything */
+@media (max-height: 500px) {
+  #controls { padding: 4px 10px; gap: 6px; font-size: 10px; }
+  #controls button { padding: 3px 8px; }
+  .field input[type=range] { width: 70px; }
+  #scroll { font-size: 3rem; }
+  #card { font-size: clamp(1.6rem, 9vh, 4rem); line-height: 1.3; }
+  #karaoke { padding: 2vw 5vw; }
+  #cardNav { bottom: 8px; }
+  #cardNav button { width: 40px; height: 40px; }
+}
+
 /* edit modal */
 #edit { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; z-index: 20; padding: 40px; flex-direction: column; }
 #edit.show { display: flex; }
@@ -174,7 +209,7 @@ body.mode-karaoke #cardNav { display: flex; }
 
 <div id="stage"><div id="scroll"></div></div>
 
-<div id="legend">
+<div id="legend" class="hidden">
   <h4>Delivery Cues</h4>
   <div><code>{loud}…{/}</code> <span class="c-loud">command the room</span> · 1.25×</div>
   <div><code>{soft}…{/}</code> <span class="c-soft">drop the energy</span> · 0.85×</div>
@@ -798,6 +833,33 @@ document.addEventListener('keydown', e => {
     case 'ArrowRight': if (mode === 'karaoke') { e.preventDefault(); nextCard(); } break;
   }
 });
+
+// ============== Touch controls ==============
+let touchStartX = 0, touchStartY = 0;
+document.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const absDx = Math.abs(dx), absDy = Math.abs(dy);
+  const target = e.target;
+  const onControl = target.closest('#controls, #cardNav, #legend, #edit, select, button, input');
+
+  // Swipe left/right in karaoke mode
+  if (mode === 'karaoke' && absDx > 40 && absDx > absDy * 1.5) {
+    if (dx < 0) nextCard(); else prevCard();
+    return;
+  }
+
+  // Tap anywhere (not on a control) to play/pause
+  if (!onControl && absDx < 10 && absDy < 10) {
+    togglePlay();
+    poke();
+  }
+}, { passive: true });
 
 // auto-hide controls during playback
 let idle;
