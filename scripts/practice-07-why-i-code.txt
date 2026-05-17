@@ -1,0 +1,12 @@
+{warm}People ask me why a restaurant owner is learning to code.{/}
+{slow}Fair question.{/}
+I run three businesses. I have thirteen staff.
+{soft}I could just hire a developer.{/}
+But here's what I've learned:
+When you can't read the code, {urg}you can't check the work.{/}
+You're fully dependent on someone else's judgment.
+For a POS system that handles my cash flow? {hit}No.{/}
+{slow}I don't need to be a senior engineer.{/}
+I need to be dangerous enough to ask the right questions.
+{up}That's the edge I'm building.{/}
+{warm}Operators who understand their tools are harder to fool.{/}

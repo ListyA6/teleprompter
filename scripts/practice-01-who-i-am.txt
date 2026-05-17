@@ -1,0 +1,8 @@
+{warm}I run three businesses in one city.{/}
+A restaurant that does {emp}Rp 130 million{/} a month.
+A production kitchen that supplies two brands.
+And a small agency {soft}that's still figuring itself out.{/}
+{slow}I'm twenty-eight.{/} I'm based in Kediri.
+{up}And I've never raised a single rupiah from outside.{/}
+{hit}Everything you see, I built with cash flow.{/}
+{warm}That's the only way I know how to build.{/}

@@ -1,0 +1,13 @@
+{warm}I'm an operator.{/}
+I run restaurants. I manage cash. I hire and fire.
+{slow}But I'm also a builder.{/}
+I write code. I build systems. I automate what I can.
+{soft}Most operators I know don't do both.{/}
+Most builders I know have never made payroll.
+{rise}I've done both. At the same time. For years.{/}
+{hit}That's the thing I'm building a voice around.{/}
+Not to teach. Not to inspire.
+{slow}To document what it actually looks like{/}
+when someone runs real businesses and builds real tools.
+{up}No theory. No shortcuts. Just the actual work.{/}
+{warm}That's what this is.{/}

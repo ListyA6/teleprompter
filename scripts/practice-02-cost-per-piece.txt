@@ -1,0 +1,10 @@
+{up}One number runs my entire operation.{/}
+{slow}Cost per piece.{/}
+At LalaFun, we sell ayam geprek.
+Our cost per piece is {emp}Rp 8,500.{/} Sell price: {emp}Rp 13,000.{/}
+{soft}That's a 35% margin on one item.{/}
+{slow}Every decision I make starts from that number.{/}
+Can we afford a new employee? {fast}Check the cost per piece.{/}
+Should we open a satellite? {fast}Check the cost per piece.{/}
+{hit}If you don't know yours, you're guessing.{/}
+{warm}And guessing is expensive.{/}

@@ -1,0 +1,11 @@
+{warm}The most expensive mistake in a restaurant isn't food waste.{/}
+{slow}It's the wrong person in the wrong role.{/}
+I've hired fast when I was desperate. {urg}Always regretted it.{/}
+I've also hired slow, checked the person, waited two weeks.
+{slow}Never regretted that once.{/}
+The kitchen doesn't forgive bad hires.
+When one person can't hold the job, {fast}everyone else carries the weight,{/}
+{fast}quality drops, complaints come in, customers leave.{/}
+{up}All from one decision made in a hurry.{/}
+{hit}Hire slow.{/}
+{warm}It's the cheapest thing you'll ever do.{/}

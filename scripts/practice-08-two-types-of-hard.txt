@@ -1,0 +1,13 @@
+{warm}There are two types of hard work.{/}
+The first type: {slow}private hard.{/}
+Coding for sixteen hours. Building a system. Fixing the kitchen.
+Nobody watches it happen. {soft}You just see if it worked.{/}
+I'm good at private hard.
+The second type: {slow}public hard.{/}
+Talking to a camera. Putting your ideas in front of strangers.
+{urg}Your face. Your voice. Your opinion. All visible.{/}
+{slow}I'm not good at that yet.{/}
+But I know the difference now.
+{up}And knowing it is the first step to fixing it.{/}
+{hit}I'm building in public now.{/}
+{warm}Watch what happens.{/}

@@ -1,0 +1,11 @@
+{warm}Most days, I'm at the restaurant before nine.{/}
+Not to cook. Not to manage orders.
+{slow}Just to feel the temperature of the room.{/}
+I check the stock. I talk to the staff.
+I look at yesterday's numbers on the POS.
+{soft}Takes maybe thirty minutes.{/}
+But in those thirty minutes, I know {emp}everything{/} that matters.
+{up}What's low. Who's struggling. Where the gap is.{/}
+{slow}You can't manage a restaurant from your phone.{/}
+{hit}You have to show up.{/}
+{warm}The data confirms. The visit decides.{/}

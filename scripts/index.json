@@ -36,5 +36,15 @@
   { "file": "what-velocity-teaches.txt", "title": "200 Orders a Day" },
   { "file": "operator-vs-owner.txt", "title": "Operator vs Owner" },
   { "file": "kosolo-hub-model.txt", "title": "Kosolo — One Kitchen, Multiple Brands" },
-  { "file": "drawer-reconciliation.txt", "title": "LalaFun — The 15K Gap" }
+  { "file": "drawer-reconciliation.txt", "title": "LalaFun — The 15K Gap" },
+  { "file": "practice-01-who-i-am.txt", "title": "Practice 01 — Who I Am" },
+  { "file": "practice-02-cost-per-piece.txt", "title": "Practice 02 — Cost Per Piece" },
+  { "file": "practice-03-sarafun-lesson.txt", "title": "Practice 03 — The SaraFun Lesson" },
+  { "file": "practice-04-before-noon.txt", "title": "Practice 04 — Before Noon" },
+  { "file": "practice-05-hire-slow.txt", "title": "Practice 05 — Hire Slow" },
+  { "file": "practice-06-seasonal-dip.txt", "title": "Practice 06 — Seasonal Dip" },
+  { "file": "practice-07-why-i-code.txt", "title": "Practice 07 — Why I Code" },
+  { "file": "practice-08-two-types-of-hard.txt", "title": "Practice 08 — Two Types of Hard" },
+  { "file": "practice-09-floural.txt", "title": "Practice 09 — Floural" },
+  { "file": "practice-10-what-im-building.txt", "title": "Practice 10 — What I'm Building" }
 ]

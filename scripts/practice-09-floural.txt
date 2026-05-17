@@ -1,0 +1,13 @@
+{warm}In August, we're launching a bakery.{/}
+It's called Floural.
+{slow}And I'm not the face of it.{/}
+My girlfriend is.
+She's the one who bakes. {soft}I'm the one who builds the system behind it.{/}
+Recipe testing starts three months out.
+The oven isn't bought yet. {soft}That's the current blocker.{/}
+{up}But everything else is moving.{/}
+Branding. Product line. Pricing.
+{slow}We're not opening until it's ready.{/}
+That's the lesson from every other launch I've done.
+{hit}Infrastructure first.{/}
+{warm}The door opens when the foundation holds.{/}
